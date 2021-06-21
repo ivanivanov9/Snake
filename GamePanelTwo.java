@@ -13,9 +13,9 @@ import GameOfSnake.GamePanel.MyKeyAdapter;
 
 public abstract class GamePanelTwo extends JPanel implements ActionListener{
 
-
+        
 	static final int SCREEN_WIDTH = 1000;
-	static final int SCREEN_HEIGHT = 500;
+	static final int SCREEN_HEIGHT = 1000;
 	
 	static final int CELL_SIZE = 50;
 	static final int CELLS = (SCREEN_WIDTH/CELL_SIZE)*(SCREEN_HEIGHT/CELL_SIZE);
