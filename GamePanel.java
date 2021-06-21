@@ -22,7 +22,7 @@ import javax.swing.Timer;
 
 public class GamePanel extends JPanel implements ActionListener{
 
-
+        //въвеждане на стойности и променливи
 	static final int SCREEN_WIDTH = 1000;
 	static final int SCREEN_HEIGHT = 1000;
 	
@@ -40,7 +40,7 @@ public class GamePanel extends JPanel implements ActionListener{
 	int appleY;
 	boolean GameOver;
 	
-	
+	//създаване на панела на играта
 	public GamePanel(){
 
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH,SCREEN_HEIGHT));
@@ -53,7 +53,7 @@ public class GamePanel extends JPanel implements ActionListener{
 
 		startGame();
 	}
-	
+	//задаване на начални стойности 
 	private void startGame() {
 		snakeLenght = 3;
 		score = 0;
@@ -67,7 +67,7 @@ public class GamePanel extends JPanel implements ActionListener{
 	
 		createNewApple();
 	}
-	
+	//създаване на ябълка
 	public void createNewApple() {
 		appleX = ((int)(Math.random()*(SCREEN_WIDTH/CELL_SIZE)))*CELL_SIZE;
 		appleY = ((int)(Math.random()*(SCREEN_HEIGHT/CELL_SIZE)))*CELL_SIZE;
@@ -75,7 +75,7 @@ public class GamePanel extends JPanel implements ActionListener{
 	}
 	
 	
-	
+	//движенията на змията
 	public void move(){
 
 		for(int i = snakeLenght; i>0; i--) {
@@ -114,21 +114,21 @@ public class GamePanel extends JPanel implements ActionListener{
 		}
 
 	}
-	
+	//сблъскване
 	public void collide(){
-		//body check
+		//когато змията се прехапва
 		for(int i = snakeLenght; i>0;i--) 
 			if((XY[0][0] == XY[i][0])&& (XY[0][1] == XY[i][1])) 
 				GameOver = true;
 
-		//walls check
+		//когато змията се удря в стена
 		if(XY[0][0] < 0 || XY[0][0] > SCREEN_WIDTH || XY[0][1] < 0 || XY[0][1] > SCREEN_HEIGHT) 
 			GameOver = true;
 
 	}
 	
 	
-	
+	//изяждане на ябълка
 	public void eatApple() {
 		if((XY[0][0] == appleX) && (XY[0][1] == appleY)) {
 
@@ -168,7 +168,7 @@ public class GamePanel extends JPanel implements ActionListener{
 	}
 	
 	
-	
+	//изрисуване на компонентите
 	public void paintComponent(Graphics g) {
 
 		super.paintComponent(g);
@@ -201,7 +201,7 @@ public class GamePanel extends JPanel implements ActionListener{
 		}
 
 	}
-	
+	/изрисуване на ябълка
 	public void drawApple(Graphics g) {
 		
 		g.setColor(Color.red);
@@ -217,7 +217,7 @@ public class GamePanel extends JPanel implements ActionListener{
 		}
 		
 	}
-	
+	//изрисуване на змията
 	public void drawSnake(Graphics g) {
 		
 
@@ -236,8 +236,8 @@ public class GamePanel extends JPanel implements ActionListener{
 
 	}
 
-
-	public class MyKeyAdapter extends KeyAdapter{
+        //задаване на определени функции на бутоните 
+  	public class MyKeyAdapter extends KeyAdapter{
 
 		@Override
 
@@ -291,7 +291,7 @@ public class GamePanel extends JPanel implements ActionListener{
 		}
 
 	}
-	
+	//проверка на най-високия резултат
 	public void checkHighScore() throws FileÅxception  {
 		
 		
@@ -331,7 +331,7 @@ public class GamePanel extends JPanel implements ActionListener{
 			 
 		
 	}
-	
+	//прочитане на най-високия резултат 
 	public int[] readScore() throws FileÅxception {
 		int [] scores = new int[3];
 		
@@ -354,7 +354,7 @@ public class GamePanel extends JPanel implements ActionListener{
 		return scores;
 	}
 	
-	
+	//показване на най-висок резултат
 	public void showHighScore() {
 		try {
 			File textfile = new File("HighScore");
