@@ -24,7 +24,7 @@ public class GamePanel extends JPanel implements ActionListener{
 
 
 	static final int SCREEN_WIDTH = 1000;
-	static final int SCREEN_HEIGHT = 500;
+	static final int SCREEN_HEIGHT = 1000;
 	
 	static final int CELL_SIZE = 50;
 	static final int CELLS = (SCREEN_WIDTH/CELL_SIZE)*(SCREEN_HEIGHT/CELL_SIZE);
@@ -158,7 +158,7 @@ public class GamePanel extends JPanel implements ActionListener{
 		}else {
 			try {
 				checkHighScore();
-			} catch (File≈xception e1) {
+			} catch (File√Öxception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
@@ -292,7 +292,7 @@ public class GamePanel extends JPanel implements ActionListener{
 
 	}
 	
-	public void checkHighScore() throws File≈xception  {
+	public void checkHighScore() throws File√Öxception  {
 		
 		
 		
@@ -332,7 +332,7 @@ public class GamePanel extends JPanel implements ActionListener{
 		
 	}
 	
-	public int[] readScore() throws File≈xception {
+	public int[] readScore() throws File√Öxception {
 		int [] scores = new int[3];
 		
 		
@@ -341,7 +341,7 @@ public class GamePanel extends JPanel implements ActionListener{
 			try {
 				myReader = new Scanner(textfile);
 			} catch (FileNotFoundException e) {
-				throw new File≈xception(e);
+				throw new File√Öxception(e);
 			}
 			
 			scores[0] =  Integer.parseInt(myReader.next());
